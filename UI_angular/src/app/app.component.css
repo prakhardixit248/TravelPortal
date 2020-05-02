@@ -1,0 +1,9 @@
+.w0{
+  width: 100%;
+}
+@media(max-width: 767px)
+{
+  .w0{
+    width: 80%;
+  }
+}
