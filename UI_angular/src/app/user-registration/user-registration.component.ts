@@ -29,6 +29,8 @@ export class UserRegistrationComponent implements OnInit {
   stateInfo: any[] = [];
   countryInfo: any[] = [];
   cityInfo: any[] = [];
+  countrname: any;
+  statername: any;
   form = new FormGroup({
     fname: new FormControl('', [Validators.required, Validators.minLength(3)]),
     email: new FormControl('', [Validators.required, emailDomainValidator]),
@@ -42,6 +44,7 @@ export class UserRegistrationComponent implements OnInit {
     country: new FormControl('', [Validators.required]),
     state: new FormControl('', [Validators.required]),
   });
+  submitted = false;
   get f(){
     return this.form.controls;
   }
@@ -62,19 +65,19 @@ export class UserRegistrationComponent implements OnInit {
       () => console.log('complete')
     )
   }
-
+  
   onChangeCountry(countryValue) {
     this.stateInfo = this.countryInfo[countryValue].States;
     this.cityInfo = this.stateInfo[0].Cities;
     console.log(this.cityInfo);
+    this.countrname = this.countryInfo[countryValue].CountryName;
   }
 
   onChangeState(stateValue) {
     this.cityInfo = this.stateInfo[stateValue].Cities;
+    this.statername = this.stateInfo[stateValue].StateName;
     //console.log(this.cityInfo);
   }
-
-
   onSubmit()
   {
     this.rservice.register(this.form.value)

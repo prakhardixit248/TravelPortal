@@ -7,12 +7,22 @@ import { UserloginComponent } from './userlogin/userlogin.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import {HttpClientModule} from '@angular/common/http';
 import {RegistrationService} from './registration.service';
+import { UserhomepageComponent } from './userhomepage/userhomepage.component';
+import { TicketrequestComponent } from './ticketrequest/ticketrequest.component';
+import { FpasswordComponent } from './fpassword/fpassword.component';
+import { TicketlistComponent } from './ticketlist/ticketlist.component';
+import { AdminhomepageComponent } from './adminhomepage/adminhomepage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserloginComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    UserhomepageComponent,
+    TicketrequestComponent,
+    FpasswordComponent,
+    TicketlistComponent,
+    AdminhomepageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<div class="container w0">
+<div class="container w0" [hidden]="submitted">
     <div class="col-sm-offset-5 mt-3" style="font-family: 'Calibri Light';">
       <h3 align="center">User Registration</h3><hr>
   
@@ -82,7 +82,7 @@
         <div class="form-group">
           <label>Select State<span class="text-danger">*</span></label>
           <select class="form-control" (change)="onChangeState($event.target.value)" formControlName="state">
-            
+             
             <option *ngFor="let state of stateInfo; let j = index" value="{{j}}">{{state.StateName}}</option>
           </select>
         </div>
@@ -93,16 +93,30 @@
             <div *ngIf="f.zcode.errors.required">Zip is required.</div>
           </div>
         </div>
-        <button class="btn btn-primary btn-md" id="btn-one" type="submit" [disabled]="!form.valid">Submit</button>
+        <button class="btn btn-primary btn-md" id="btn-one" type="submit" [disabled]="!form.valid" (click)="submitted=true">Submit</button>
       </form>
       <h6><span class="text-danger">*</span>All fields are compulsory.</h6>
       <h6>Already a user? <a routerLink="">Login here.</a> </h6>
     </div>
   </div>
-  <div class="container col-sm-offset-5 mt-3" [hidden]="!form.valid">
+
+  <div class="container mt-3" [hidden]="!submitted" style="font-family: 'Calibri Light';">
     <h3 align="center">Registration:Confirmation</h3><hr>
+    <div class="col-md-5 " align="left">
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">First Name:</li>
-    </ul>
+      <li class="list-group-item">First Name: {{form.value.fname}} </li>
+      <li class="list-group-item">Last Name: {{form.value.lname}} </li>
+      <li class="list-group-item">Business Unit: {{form.value.bunit}} </li>
+      <li class="list-group-item">Title: {{form.value.title}} </li>
+      <li class="list-group-item">Email: {{form.value.email}} </li>
+      <li class="list-group-item">Telephone: {{form.value.tel}} </li>
+      <li class="list-group-item">City: {{form.value.city}} </li>
+      <li class="list-group-item">Country: {{countrname}} </li>
+      <li class="list-group-item">State: {{statername}} </li>
+      <li class="list-group-item">Zip: {{form.value.zcode}} </li>
+    </ul><br>
+    <button class="btn btn-unique btn-md" (click)="submitted=false">Edit</button>
+    <button class="btn btn-unique btn-md" routerLink="">Back to Login</button>
+    </div>
   </div>
   
