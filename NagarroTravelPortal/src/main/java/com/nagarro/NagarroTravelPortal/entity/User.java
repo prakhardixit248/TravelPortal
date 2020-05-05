@@ -16,8 +16,6 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.nagarro.NagarroTravelPortal.entity.constraint.Email;
-import com.nagarro.NagarroTravelPortal.entity.constraint.ValidPassword;
 
 @EntityListeners(AuditingEntityListener.class)
 @Entity

@@ -17,6 +17,9 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import {MatTableModule} from '@angular/material/table';
     FpasswordComponent,
     AdminloginComponent,
     UserhomepageComponent,
-    TicketrequestComponent
+    TicketrequestComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,7 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonModule,
     MatTableModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

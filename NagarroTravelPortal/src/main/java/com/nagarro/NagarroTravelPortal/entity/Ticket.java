@@ -1,14 +1,17 @@
 package com.nagarro.NagarroTravelPortal.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,48 +20,54 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true)
 @DynamicUpdate
-public class Ticket 
+public class Ticket implements Serializable
 {
 	@Id
-	@GeneratedValue(generator="system-uuid")
-	@GenericGenerator(name="system-uuid", strategy = "uuid")
-	private String Id;
-	
-	@NotBlank
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long Id;
+ 	
+	@NotNull
 	private String type;
 	
-	@NotBlank
+	@NotNull
 	private String tcity;
 	
-	@NotBlank
+	@NotNull
 	private String lcity;
 	
-	@NotBlank
+	@NotNull
 	private String sdate;
 	
-	@NotBlank
+	@NotNull
 	private String edate;
 	
-	@NotBlank
+	@NotNull
 	private String pnumber;
 	
-	@NotBlank
+	@NotNull
 	private String pname;
 	
-	@NotBlank
-	private String exborne;
+	@NotNull
+	private int exborne;
 	
 	private String approver;
 	
-	private String duration;
+	private int duration;
 	
 	private int upbound;
 	
-	@NotBlank
+	@NotNull
 	private String details;
 	
-	@NotBlank
+	@NotNull
 	private String email;
+
+	@Override
+	public String toString() {
+		return "Ticket [type=" + type + ", tcity=" + tcity + ", lcity=" + lcity + ", sdate=" + sdate + ", edate="
+				+ edate + ", pnumber=" + pnumber + ", pname=" + pname + ", exborne=" + exborne + ", approver="
+				+ approver + ", duration=" + duration + ", upbound=" + upbound + ", details=" + details + "]";
+	}
 
 	public String getType() {
 		return type;
@@ -116,11 +125,11 @@ public class Ticket
 		this.pname = pname;
 	}
 
-	public String getExborne() {
+	public int getExborne() {
 		return exborne;
 	}
 
-	public void setExborne(String exborne) {
+	public void setExborne(int exborne) {
 		this.exborne = exborne;
 	}
 
@@ -132,11 +141,11 @@ public class Ticket
 		this.approver = approver;
 	}
 
-	public String getDuration() {
+	public int getDuration() {
 		return duration;
 	}
 
-	public void setDuration(String duration) {
+	public void setDuration(int duration) {
 		this.duration = duration;
 	}
 
@@ -156,21 +165,17 @@ public class Ticket
 		this.details = details;
 	}
 
-	public String getEmail() {
-		return email;
+	public Long getId() {
+		return Id;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public String getId() {
-		return Id;
-	}
-
 	public Ticket(@NotBlank String type, @NotBlank String tcity, @NotBlank String lcity, @NotBlank String sdate,
-			@NotBlank String edate, @NotBlank String pnumber, @NotBlank String pname, @NotBlank String exborne,
-			String approver, String duration, int upbound, @NotBlank String details, @NotBlank String email) {
+			@NotBlank String edate, @NotBlank String pnumber, @NotBlank String pname, @NotBlank int exborne,
+			String approver, int duration, int upbound, @NotBlank String details) {
 		super();
 		this.type = type;
 		this.tcity = tcity;
@@ -184,21 +189,7 @@ public class Ticket
 		this.duration = duration;
 		this.upbound = upbound;
 		this.details = details;
-		this.email = email;
 	}
 	
-	public Ticket()
-	{
-		
-	}
-
-	@Override
-	public String toString() {
-		return "Ticket [type=" + type + ", tcity=" + tcity + ", lcity=" + lcity + ", sdate=" + sdate + ", edate="
-				+ edate + ", pnumber=" + pnumber + ", pname=" + pname + ", exborne=" + exborne + ", approver="
-				+ approver + ", duration=" + duration + ", upbound=" + upbound + ", details=" + details + "]";
-	}
-
 	
 }
-

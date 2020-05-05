@@ -4,13 +4,22 @@
     <h3 align="center">Login</h3><hr>
 
     <form class="col-lg-5 md-form needs-validation" method="POST">
-      <div class="md-form">
-        <input type="email" class="form-control" id="" required>
-        <label for="email">Email</label>
+      <div class="form-group clearfix" [ngClass]="{ 'has-error': submitted && f.userid.errors }">
+        <label for="userid" class="col-md-3 col-sm-5 col-xs-12">Userid</label>
+        <div class="col-md-9 col-sm-7 col-xs-12">
+            <input type="email" class="form-control" id="" requiredformControlName="userid" />
+            <label for="email">Email</label>
+            <div *ngIf="submitted && f.userid.errors" class="help-block">
+                  <div *ngIf="f.userid.errors.required">Userid is required</div>
+            </div>
+        </div>
       </div>
-      <div class="md-form">
-        <input type="password" class="form-control" id="" required>
+      <div class="md-form" [ngClass]="{ 'has-error': submitted && f.password.errors }">
+        <input type="password" class="form-control" id="" required formControlName="password">
         <label for="password">Password</label>
+        <div *ngIf="submitted && f.password.errors" class="help-block">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
       </div>
       <button class="btn btn-primary btn-md" id="btn-one" type="submit" formaction="homepage">login</button>
       <button class="btn btn-md btn-warning" type="submit" formaction="admin_login">Admin login</button>
