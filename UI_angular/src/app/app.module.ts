@@ -1,51 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {AppComponent} from './app.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
-import { FpasswordComponent } from './fpassword/fpassword.component';
-import { AdminloginComponent } from './adminlogin/adminlogin.component';
-import { UserhomepageComponent } from './userhomepage/userhomepage.component';
-import { TicketrequestComponent } from './ticketrequest/ticketrequest.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatInputModule} from "@angular/material/input";
-import {MatNativeDateModule} from "@angular/material/core";
-import {MatRadioModule} from '@angular/material/radio';
-import {MatButtonModule} from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './auth.guard';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserloginComponent,
-    UserRegistrationComponent,
-    FpasswordComponent,
-    AdminloginComponent,
-    UserhomepageComponent,
-    TicketrequestComponent,
-    DashboardComponent
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
+    HttpClientModule,
     FormsModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatNativeDateModule,
-    MatRadioModule,
-    MatButtonModule,
-    MatTableModule
+    ReactiveFormsModule
   ],
-  providers: [AuthGuard],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
