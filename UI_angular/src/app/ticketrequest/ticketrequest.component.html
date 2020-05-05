@@ -1,0 +1,148 @@
+<div class="container w0" [hidden]="submitted">
+    <div class="col-sm-offset-5 mt-3" style="font-family: 'Calibri Light';">
+      <h3 align="center">Ticket Request</h3><hr>
+  
+      <form class="col-lg-5" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate method="POST">
+        <div class="form-group">
+          <label for="rtype">Request Type<span class="text-danger">*</span></label>
+          <select class="form-control" formControlName="rtype">
+              <option value="Travel Tickets" >Travel Tickets</option>
+              <option value="Hotel Stay" >Hotel Stay</option>
+              <option value="Visa" >Visa</option>
+              <option value="Work Permit" >Work Permit</option>
+          </select>
+          <div *ngIf="f.rtype.touched && f.rtype.invalid" class="alert alert-danger">
+            <div *ngIf="f.rtype.errors.required">Request type is required.</div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="ptype">Priority<span class="text-danger">*</span></label>
+            <select class="form-control" formControlName="ptype">
+                <option value="Normal" >Normal</option>
+                <option value="Urgent" >Urgent</option>
+                <option value="Immediate" >Immediate</option>
+            </select>
+            <div *ngIf="f.ptype.touched && f.ptype.invalid" class="alert alert-danger">
+              <div *ngIf="f.ptype.errors.required">Priority is required.</div>
+            </div>
+        </div>
+        <div class="md-form">
+          <input type="text" class="form-control" id="tcity" formControlName="tcity">
+          <label for="tcity">Travel City<span class="text-danger">*</span></label>
+          <div *ngIf="f.tcity.touched && f.tcity.invalid" class="alert alert-danger">
+            <div *ngIf="f.tcity.errors.required">Travel City is required.</div>
+          </div>
+  
+        </div>
+        <div class="md-form">
+          <input type="text" class="form-control" id="lcity" formControlName="lcity">
+          <label for="lcity">From Location City<span class="text-danger">*</span></label>
+          <div *ngIf="f.lcity.touched && f.lcity.invalid" class="alert alert-danger">
+            <div *ngIf="f.lcity.errors.required">Location City is required.</div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="sdate">Travel Start Date<span class="text-danger">*</span></label>
+              <input class="form-control" type="date" id="sdate" formControlName="sdate">
+            <div *ngIf="f.sdate.touched && f.sdate.invalid" class="alert alert-danger">
+              <div *ngIf="f.sdate.errors.required">Travel Start Date is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="edate">Travel End Date<span class="text-danger">*</span></label>
+              <input class="form-control" type="date" id="edate" formControlName="edate">
+            <div *ngIf="f.edate.touched && f.edate.invalid" class="alert alert-danger">
+              <div *ngIf="f.edate.errors.required">Travel End Date is required.</div>
+            </div>
+        </div>
+        <div class="md-form">
+          <input type="text" class="form-control" id="pno" formControlName="pno">
+          <label for="pno">Passport Number<span class="text-danger">*</span></label>
+          <div *ngIf="f.pno.touched && f.pno.invalid" class="alert alert-danger">
+            <div *ngIf="f.pno.errors.required">Passport Number is required.</div>
+            <div *ngIf="f.pno.errors.maxlength">Please, enter valid passport number, max length 25 characters.</div>
+          </div>
+        </div>
+        <div class="md-form">
+            <input type="text" class="form-control" id="pname" formControlName="pname">
+            <label for="pname">Project Name<span class="text-danger">*</span></label>
+            <div *ngIf="f.pname.touched && f.pname.invalid" class="alert alert-danger">
+              <div *ngIf="f.pname.errors.required">Project Name is required.</div>
+              <div *ngIf="f.pname.errors.maxlength">Max length 100 characters.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Expense Borne By</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="exampleRadios1" value="Nagarro" formControlName="radio1">
+            <label class="form-check-label" for="exampleRadios1">
+              Nagarro
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="exampleRadios2" value="Client" formControlName="radio1">
+            <label class="form-check-label" for="exampleRadios2">
+              Client
+            </label>
+          </div>
+          <div *ngIf="f.radio1.touched && f.radio1.invalid" class="alert alert-danger">
+            <div *ngIf="f.radio1.errors.required">Field is required.</div>
+          </div>
+        </div>
+        <div class="md-form">
+            <input type="text" class="form-control" id="taname" formControlName="approver">
+            <label for="taname">Travel Approvel Name(Optional)</label>
+            <div *ngIf="f.approver.touched && f.approver.invalid" class="alert alert-danger">
+                <div *ngIf="f.approver.errors.maxlength">Max length 100 characters.</div>
+            </div>
+        </div>
+       <div class="md-form">
+        <input type="text" id="form7" class="form-control" formControlName="duration">
+        <label for="form7">Expected duration of Travel(Optional)</label>
+        <div *ngIf="f.duration.touched && f.duration.invalid" class="alert alert-danger">
+            <div *ngIf="f.duration.errors.maxlength">Max length 100 characters.</div>
+        </div>
+       </div>
+       <div class="md-form">
+        <input type="text" id="form9" class="form-control" formControlName="uamount">
+        <label for="form9">Any Upperbound Amount? If yes Specify(Optional)</label>
+        <div *ngIf="f.uamount.touched && f.uamount.invalid" class="alert alert-danger">
+            <div *ngIf="f.uamount.errors.maxlength">Max length 500 characters.</div>
+        </div>
+       </div>
+       <div class="md-form">
+           <input type="text" id="form8" class="form-control" formControlName="details">
+           <label for="form8">Any Additional Details<span class="text-danger">*</span></label>
+           <div *ngIf="f.details.touched && f.details.invalid" class="alert alert-danger">
+            <div *ngIf="f.details.errors.required">Details are required.</div>
+            <div *ngIf="f.details.errors.maxlength">Max length 1000 characters.</div>
+          </div>
+       </div>
+        <button class="btn btn-primary btn-md" id="btn-one" type="submit" [disabled]="!form.valid" (click)="submitted=true">Submit</button>
+      </form>
+      <h6><span class="text-danger">*</span>All fields are compulsory.</h6>
+    </div>
+  </div>
+
+  <div class="container mt-3" [hidden]="!submitted" style="font-family: 'Calibri Light';">
+    <h3 align="center">Ticket Request:Confirmation</h3><hr>
+    <div class="col-md-5 " align="left">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Request type: {{form.value.rtype}} </li>
+      <li class="list-group-item">Priority: {{form.value.ptype}} </li>
+      <li class="list-group-item">Travel city: {{form.value.tcity}} </li>
+      <li class="list-group-item">From location city: {{form.value.lcity}} </li>
+      <li class="list-group-item">Travel start date: {{form.value.sdate}} </li>
+      <li class="list-group-item">Travel end date: {{form.value.edate}} </li>
+      <li class="list-group-item">Passport number: {{form.value.pno}} </li>
+      <li class="list-group-item">Project name: {{form.value.pname}} </li>
+      <li class="list-group-item">Expense Borne By: {{form.value.radio1}} </li>
+      <li class="list-group-item">Travel approver name: {{form.value.approver}} </li>
+      <li class="list-group-item">Expected duration of travel: {{form.value.duration}} </li>
+      <li class="list-group-item">Any Upperbound amount: {{form.value.uamount}} </li>
+      <li class="list-group-item">Additional details: {{form.value.details}} </li>
+    </ul><br>
+    <button class="btn btn-unique btn-md" (click)="submitted=false">Edit</button>
+    <button class="btn btn-unique btn-md" routerLink="/user_homepage">Back to Homepage</button>
+    </div>
+  </div>

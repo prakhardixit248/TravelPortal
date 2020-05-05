@@ -1,0 +1,23 @@
+body{
+    margin: auto;
+    width: 100%;
+  }
+  .content{
+    background: url("travel2.jpg")no-repeat;
+    background-size: cover;
+  }
+  .content2{
+    background-color: rgba(0,0,0,0.5);
+    padding: 17%;
+  }
+  @media(max-width: 767px) {
+    .content{
+      background: url("travel3.jpg")no-repeat;
+      background-size: cover;
+    }
+    .content2{
+      background-color: rgba(0,0,0,0.7);
+      padding-bottom: 60%;
+    }
+  }
+  
