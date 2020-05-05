@@ -8,7 +8,7 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 })
 export class RegistrationService {
 
-  _url = '';
+  _url = 'http://localhost:8083/travelportal/signup';
   constructor(private _http: HttpClient) { }
 
   register(user: UserRegistrationComponent){

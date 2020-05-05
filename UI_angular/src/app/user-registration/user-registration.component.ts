@@ -82,5 +82,6 @@ export class UserRegistrationComponent implements OnInit {
       data => console.log('Success!', data),
       error => console.log('Error!', error)
     );
+    console.log(this.form.value);
   }
 }
