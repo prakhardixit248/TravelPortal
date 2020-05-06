@@ -27,7 +27,7 @@ public class Ticket implements Serializable
     private Long Id;
  	
 	@NotNull
-	private String type;
+	private String rtype;
 	
 	@NotNull
 	private String tcity;
@@ -42,19 +42,19 @@ public class Ticket implements Serializable
 	private String edate;
 	
 	@NotNull
-	private String pnumber;
+	private String pno;
 	
 	@NotNull
 	private String pname;
 	
 	@NotNull
-	private int exborne;
+	private int radio1;
 	
 	private String approver;
 	
 	private int duration;
 	
-	private int upbound;
+	private int uamount;
 	
 	@NotNull
 	private String details;
@@ -62,19 +62,32 @@ public class Ticket implements Serializable
 	@NotNull
 	private String email;
 
-	@Override
-	public String toString() {
-		return "Ticket [type=" + type + ", tcity=" + tcity + ", lcity=" + lcity + ", sdate=" + sdate + ", edate="
-				+ edate + ", pnumber=" + pnumber + ", pname=" + pname + ", exborne=" + exborne + ", approver="
-				+ approver + ", duration=" + duration + ", upbound=" + upbound + ", details=" + details + "]";
+	Ticket (){}
+
+	public Ticket(@NotNull String rtype, @NotNull String tcity, @NotNull String lcity, @NotNull String sdate,
+			@NotNull String edate, @NotNull String pno, @NotNull String pname, @NotNull int radio1, String approver,
+			int duration, int uamount, @NotNull String details) {
+		super();
+		this.rtype = rtype;
+		this.tcity = tcity;
+		this.lcity = lcity;
+		this.sdate = sdate;
+		this.edate = edate;
+		this.pno = pno;
+		this.pname = pname;
+		this.radio1 = radio1;
+		this.approver = approver;
+		this.duration = duration;
+		this.uamount = uamount;
+		this.details = details;
 	}
 
-	public String getType() {
-		return type;
+	public String getRtype() {
+		return rtype;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setRtype(String rtype) {
+		this.rtype = rtype;
 	}
 
 	public String getTcity() {
@@ -109,12 +122,12 @@ public class Ticket implements Serializable
 		this.edate = edate;
 	}
 
-	public String getPnumber() {
-		return pnumber;
+	public String getPno() {
+		return pno;
 	}
 
-	public void setPnumber(String pnumber) {
-		this.pnumber = pnumber;
+	public void setPno(String pno) {
+		this.pno = pno;
 	}
 
 	public String getPname() {
@@ -125,12 +138,12 @@ public class Ticket implements Serializable
 		this.pname = pname;
 	}
 
-	public int getExborne() {
-		return exborne;
+	public int getRadio1() {
+		return radio1;
 	}
 
-	public void setExborne(int exborne) {
-		this.exborne = exborne;
+	public void setRadio1(int radio1) {
+		this.radio1 = radio1;
 	}
 
 	public String getApprover() {
@@ -149,12 +162,12 @@ public class Ticket implements Serializable
 		this.duration = duration;
 	}
 
-	public int getUpbound() {
-		return upbound;
+	public int getUamount() {
+		return uamount;
 	}
 
-	public void setUpbound(int upbound) {
-		this.upbound = upbound;
+	public void setUamount(int uamount) {
+		this.uamount = uamount;
 	}
 
 	public String getDetails() {
@@ -165,30 +178,23 @@ public class Ticket implements Serializable
 		this.details = details;
 	}
 
-	public Long getId() {
-		return Id;
+	public String getEmail() {
+		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public Ticket(@NotBlank String type, @NotBlank String tcity, @NotBlank String lcity, @NotBlank String sdate,
-			@NotBlank String edate, @NotBlank String pnumber, @NotBlank String pname, @NotBlank int exborne,
-			String approver, int duration, int upbound, @NotBlank String details) {
-		super();
-		this.type = type;
-		this.tcity = tcity;
-		this.lcity = lcity;
-		this.sdate = sdate;
-		this.edate = edate;
-		this.pnumber = pnumber;
-		this.pname = pname;
-		this.exborne = exborne;
-		this.approver = approver;
-		this.duration = duration;
-		this.upbound = upbound;
-		this.details = details;
+	public Long getId() {
+		return Id;
+	}
+
+	@Override
+	public String toString() {
+		return "Ticket [Id=" + Id + ", rtype=" + rtype + ", tcity=" + tcity + ", lcity=" + lcity + ", sdate=" + sdate
+				+ ", edate=" + edate + ", pno=" + pno + ", pname=" + pname + ", radio1=" + radio1 + ", approver="
+				+ approver + ", duration=" + duration + ", uamount=" + uamount + ", details=" + details + "]";
 	}
 	
 	

@@ -13,9 +13,9 @@ export class RegistrationService {
 
   _url = 'http://localhost:8083/travelportal/signup';
   url1 = 'http://localhost:8083/travelportal/ticketgeneration';
-  url2 = '';
-  url3 = '';
-
+  url2 = 'http://localhost:8083/forgotpassword';
+  url4 = 'http://localhost:8083/travelportal/tickets';
+  url3='http://localhost:8083/gettickets'
   constructor(private _http: HttpClient) { }
 
   register(user: UserRegistrationComponent){
@@ -32,5 +32,9 @@ export class RegistrationService {
   alltickets()
   {
     return this._http.get<any>(this.url3);
+  }
+  alladmintickets()
+  {
+    return this._http.get<any>(this.url4);
   }
 }
