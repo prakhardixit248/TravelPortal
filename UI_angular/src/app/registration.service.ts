@@ -10,6 +10,7 @@ import { TicketlistComponent } from './ticketlist/ticketlist.component';
   providedIn: 'root'
 })
 export class RegistrationService {
+  currentUser=localStorage.getItem("currentUser");
 
   _url = 'http://localhost:8083/travelportal/signup';
   url1 = 'http://localhost:8083/travelportal/ticketgeneration';
@@ -27,7 +28,7 @@ export class RegistrationService {
   }
   esubmit(email: FpasswordComponent)
   {
-    return this._http.post<any>(this.url2, email);
+    return this._http.post<any>(this.url2, this.currentUser);
   }
   alltickets()
   {

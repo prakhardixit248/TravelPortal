@@ -29,7 +29,7 @@ export class UserloginComponent implements OnInit {
       this.http.post<any>("http://localhost:8083/travelportal/signin", body)
       .subscribe((data)=>
       {
-                  localStorage.setItem("currentUser",data);
+          localStorage.setItem("currentUser",data);
       });
     }
     else

@@ -1,27 +1,22 @@
 <div class="container mt-3" style="font-family: 'Calibri Light';">
     <h3 align="left">Ticket List</h3><hr>
     <div class=" col-md-5 ">
-    <table class="table table-striped">
-      <tr>
-        <th>
-          <button ng-click="sortBy('radio1')">Status</button>
-          <span class="sortorder" ng-show="propertyName === 'radio1'" ng-class="{reverse: reverse}"></span>
-        </th>
-        <th>
-          <button ng-click="sortBy('sdate')">Sdate</button>
-          <span class="sortorder" ng-show="propertyName === 'sdate'" ng-class="{reverse: reverse}"></span>
-        </th>
-        <th>
-          <button ng-click="sortBy('priority')">Priority<button>
-          <span class="sortorder" ng-show="propertyName === 'priority'" ng-class="{reverse: reverse}"></span>
-        </th>
-      </tr>
-      <tr ng-repeat="ticket in ticketInfo | orderBy:propertyName:reverse">
-        <td>{{ticket.radio1}}</td>
-        <td>{{ticket.sdate}}</td>
-        <td>{{ticket.priority}}</td>
-      </tr>
-    </table>
-    <button (click)="generatePdf()">Open PDF</button>
+      <table id="tableSortExample" mdbTable class="z-depth-1">
+        <thead>
+          <tr>
+            <th *ngFor="let head of headElements; let i = index" aria-controls="tableSortExample" scope="col" [mdbTableSort]="ticketInfo" [sortBy]="headElements[i]">{{head | titlecase}}
+              <mdb-icon fas icon="sort"></mdb-icon>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ticket of ticketInfo; let i = index">
+            <th scope="row">{{ticket.id}}</th>
+            <td>{{ticket.radio1}}</td>
+            <td>{{ticket.sdate}}</td>
+            <td>{{ticket.priority}}</td>
+          </tr>
+        </tbody>
+      </table>
 </div>
 </div>

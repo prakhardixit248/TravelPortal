@@ -33,7 +33,7 @@ public class WebController
 	
 	private SessionFactory sessionFactory;
 	
-	@Value("${admin.name}")
+	@Value("${admin.username}")
 	private String adminname;
 	
 	@Value("${admin.password}")

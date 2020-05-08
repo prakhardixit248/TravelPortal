@@ -12,7 +12,7 @@ import { TicketrequestComponent } from './ticketrequest/ticketrequest.component'
 import { FpasswordComponent } from './fpassword/fpassword.component';
 import { TicketlistComponent } from './ticketlist/ticketlist.component';
 import { AdminhomepageComponent } from './adminhomepage/adminhomepage.component';
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +29,8 @@ import { AdminhomepageComponent } from './adminhomepage/adminhomepage.component'
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [
     RegistrationService

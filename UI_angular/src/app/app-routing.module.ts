@@ -6,13 +6,15 @@ import { UserhomepageComponent } from './userhomepage/userhomepage.component';
 import { TicketrequestComponent } from './ticketrequest/ticketrequest.component';
 import { FpasswordComponent } from './fpassword/fpassword.component';
 import { TicketlistComponent } from './ticketlist/ticketlist.component';
+import { AdminhomepageComponent } from './adminhomepage/adminhomepage.component';
 const routes: Routes = [
   {path: '', component: UserloginComponent},
   {path: 'forgot_password', component: FpasswordComponent},
   {path: 'user_registration', component: UserRegistrationComponent},
   {path: 'user_homepage', component: UserhomepageComponent},
   {path: 'user_homepage/ticket_request', component: TicketrequestComponent},
-  {path: 'user_homepage/ticket_list', component: TicketlistComponent}
+  {path: 'user_homepage/ticket_list', component: TicketlistComponent},
+  {path:'admin_homepage',component:AdminhomepageComponent}
 ];
 
 @NgModule({

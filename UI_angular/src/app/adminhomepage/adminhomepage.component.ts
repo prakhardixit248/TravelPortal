@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegistrationService } from '../registration.service';
-
+import { WavesModule, TableModule, IconsModule } from 'angular-bootstrap-md';
 @Component({
   selector: 'app-adminhomepage',
   templateUrl: './adminhomepage.component.html',
@@ -9,6 +9,7 @@ import { RegistrationService } from '../registration.service';
 export class AdminhomepageComponent implements OnInit {
 
   ticketInfo: any[] = [];
+  headElements = ['id', 'Expense borne by', 'start date', 'priority'];
   constructor(private  geticket: RegistrationService ) { }
 
   ngOnInit(): void {
@@ -27,4 +28,4 @@ export class AdminhomepageComponent implements OnInit {
   }
 
 }
-}
+
