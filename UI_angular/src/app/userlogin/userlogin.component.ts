@@ -26,7 +26,7 @@ export class UserloginComponent implements OnInit {
 
     if(!this.isFoo)
     {
-      this.http.post<any>("http://localhost:8083/travelportal/signin", body)
+      this.http.post<any>("http://localhost:8083/signin", body)
       .subscribe((data)=>
       {
           localStorage.setItem("currentUser",data);
@@ -34,7 +34,7 @@ export class UserloginComponent implements OnInit {
     }
     else
     {
-      this.http.post<any>("http://localhost:8083/travelportal/adminlogin", body)
+      this.http.post<any>("http://localhost:8083/adminlogin", body)
       .subscribe((data)=>
       {
         if(data)

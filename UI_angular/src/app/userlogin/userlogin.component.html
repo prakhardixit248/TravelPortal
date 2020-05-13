@@ -4,11 +4,11 @@
   
       <form class="col-lg-5 md-form needs-validation" method="POST" formControlName="" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
         <div class="md-form">
-          <input type="email" class="form-control" id="" required formControlName="email">
+          <input type="email" class="form-control" id="email" required formControlName="email">
           <label for="email">Email</label>
         </div>
         <div class="md-form">
-          <input type="password" class="form-control" id="" required formControlName="password">
+          <input type="password" class="form-control" id="password" required formControlName="password">
           <label for="password">Password</label>
         </div>
         <button class="btn btn-primary btn-md" id="btn-one" type="submit" formaction="homepage" (click)="isFoo=false">login</button>

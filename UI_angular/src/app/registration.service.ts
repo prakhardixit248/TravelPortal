@@ -12,8 +12,8 @@ import { TicketlistComponent } from './ticketlist/ticketlist.component';
 export class RegistrationService {
   currentUser=localStorage.getItem("currentUser");
 
-  _url = 'http://localhost:8083/travelportal/signup';
-  url1 = 'http://localhost:8083/travelportal/ticketgeneration';
+  _url = 'http://localhost:8083/signup';
+  url1 = 'http://localhost:8083/ticketgeneration';
   url2 = 'http://localhost:8083/forgotpassword';
   url4 = 'http://localhost:8083/travelportal/tickets';
   url3='http://localhost:8083/gettickets'
