@@ -19,13 +19,13 @@ export class AdminhomepageComponent implements OnInit {
     this.geticket.alladmintickets().
     subscribe(
       data2 => {
-        this.ticketInfo = data2.tickets;
-        //console.log('Data:', this.ticketInfo);
+        // console.log(data2);
+        this.ticketInfo = data2._embedded.tickets;
+        console.log('Data:', this.ticketInfo);
       },
       err => console.log(err),
       () => console.log('complete')
     )
   }
-
 }
 

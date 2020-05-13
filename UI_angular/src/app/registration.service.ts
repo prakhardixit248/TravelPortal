@@ -32,7 +32,7 @@ export class RegistrationService {
   }
   alltickets()
   {
-    return this._http.get<any>(this.url3);
+    return this._http.post<any>(this.url3,this.currentUser);
   }
   alladmintickets()
   {

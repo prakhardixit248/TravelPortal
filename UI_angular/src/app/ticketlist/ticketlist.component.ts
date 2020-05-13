@@ -19,7 +19,7 @@ export class TicketlistComponent implements OnInit {
     this.geticket.alltickets().
     subscribe(
       data2 => {
-        this.ticketInfo = data2.tickets;
+        this.ticketInfo = data2._embedded.tickets;
         //console.log('Data:', this.ticketInfo);
       },
       err => console.log(err),

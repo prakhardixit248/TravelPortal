@@ -11,10 +11,10 @@
         </thead>
         <tbody>
           <tr *ngFor="let ticket of ticketInfo; let i = index">
-            <th scope="row">{{ticket.id}}</th>
+            <td>{{ticket.id}}</td>
             <td>{{ticket.radio1}}</td>
             <td>{{ticket.sdate}}</td>
-            <td>{{ticket.priority}}</td>
+            <td>{{ticket.ptype}}</td>
           </tr>
         </tbody>
       </table>
