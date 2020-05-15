@@ -103,7 +103,7 @@ public class WebController
 		return list;
 	}
 	
-	@GetMapping("/signin")
+	@PostMapping("/signin")
 	public User signin(@RequestParam(name = "email", required = true) String email,
 			@RequestParam(name = "password", required = true) String password)
 	{

@@ -30,6 +30,9 @@ public class Ticket implements Serializable
 	private String rtype;
 	
 	@NotNull
+	private String ptype;
+	
+	@NotNull
 	private String tcity;
 	
 	@NotNull
@@ -48,7 +51,7 @@ public class Ticket implements Serializable
 	private String pname;
 	
 	@NotNull
-	private int radio1;
+	private String radio1;
 	
 	private String approver;
 	
@@ -64,11 +67,13 @@ public class Ticket implements Serializable
 
 	Ticket (){}
 
-	public Ticket(@NotNull String rtype, @NotNull String tcity, @NotNull String lcity, @NotNull String sdate,
-			@NotNull String edate, @NotNull String pno, @NotNull String pname, @NotNull int radio1, String approver,
-			int duration, int uamount, @NotNull String details) {
+
+	public Ticket(@NotNull String rtype, @NotNull String ptype, @NotNull String tcity, @NotNull String lcity,
+			@NotNull String sdate, @NotNull String edate, @NotNull String pno, @NotNull String pname,
+			@NotNull String radio1, String approver, int duration, int uamount, @NotNull String details) {
 		super();
 		this.rtype = rtype;
+		this.ptype = ptype;
 		this.tcity = tcity;
 		this.lcity = lcity;
 		this.sdate = sdate;
@@ -81,6 +86,17 @@ public class Ticket implements Serializable
 		this.uamount = uamount;
 		this.details = details;
 	}
+
+
+	public String getPtype() {
+		return ptype;
+	}
+
+
+	public void setPtype(String ptype) {
+		this.ptype = ptype;
+	}
+
 
 	public String getRtype() {
 		return rtype;
@@ -138,11 +154,11 @@ public class Ticket implements Serializable
 		this.pname = pname;
 	}
 
-	public int getRadio1() {
+	public String getRadio1() {
 		return radio1;
 	}
 
-	public void setRadio1(int radio1) {
+	public void setRadio1(String radio1) {
 		this.radio1 = radio1;
 	}
 
@@ -192,10 +208,10 @@ public class Ticket implements Serializable
 
 	@Override
 	public String toString() {
-		return "Ticket [Id=" + Id + ", rtype=" + rtype + ", tcity=" + tcity + ", lcity=" + lcity + ", sdate=" + sdate
-				+ ", edate=" + edate + ", pno=" + pno + ", pname=" + pname + ", radio1=" + radio1 + ", approver="
-				+ approver + ", duration=" + duration + ", uamount=" + uamount + ", details=" + details + "]";
+		return "Ticket [Id=" + Id + ", rtype=" + rtype + ", ptype=" + ptype + ", tcity=" + tcity + ", lcity=" + lcity
+				+ ", sdate=" + sdate + ", edate=" + edate + ", pno=" + pno + ", pname=" + pname + ", radio1=" + radio1
+				+ ", approver=" + approver + ", duration=" + duration + ", uamount=" + uamount + ", details=" + details
+				+ "]";
 	}
-	
-	
+
 }

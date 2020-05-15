@@ -19,7 +19,7 @@ export class AdminhomepageComponent implements OnInit {
     this.geticket.alladmintickets().
     subscribe(
       data2 => {
-        // console.log(data2);
+        console.log(data2);
         this.ticketInfo = data2._embedded.tickets;
         console.log('Data:', this.ticketInfo);
       },
@@ -28,4 +28,3 @@ export class AdminhomepageComponent implements OnInit {
     )
   }
 }
-
